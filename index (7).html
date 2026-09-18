@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>「マエバシ・ダイブ」副読本</title>
+<meta name="description" content="街歩きRPG「マエバシ・ダイブ」を地域団体のチームで遊ぶための副読本。全11ページ。">
+<meta property="og:title" content="「マエバシ・ダイブ」副読本">
+<meta property="og:description" content="街歩きRPG「マエバシ・ダイブ」を地域団体のチームで遊ぶための副読本。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="p00.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📘</text></svg>">
+<style>
+  :root { --bg:#17181a; --fg:#f2efe4; --dim:#8a8d92; --accent:#f2c230; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html, body { margin:0; padding:0; height:100%; overflow:hidden; background:var(--bg); }
+  body { font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+         color:var(--fg); display:flex; flex-direction:column; }
+
+  header { flex:0 0 auto; padding:10px 14px 4px; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; }
+  .ttl { font-size:13px; font-weight:700; letter-spacing:.04em; }
+  .sub { font-size:10px; color:var(--dim); letter-spacing:.12em; }
+  header a { margin-left:auto; font-size:11px; color:var(--accent); text-decoration:none;
+             border:1px solid rgba(242,194,48,.5); border-radius:999px; padding:3px 10px; }
+  header a:hover { background:rgba(242,194,48,.14); }
+
+  .stage { flex:1 1 auto; position:relative; min-height:0; overflow:hidden; touch-action:pan-y; }
+  .track { position:absolute; inset:0; display:flex; will-change:transform;
+           transition:transform .32s cubic-bezier(.22,.61,.36,1); }
+  .slide { flex:0 0 100%; width:100%; height:100%; display:flex;
+           align-items:center; justify-content:center; padding:4px 16px 8px; }
+  .slide img { max-width:100%; max-height:100%; width:auto; height:auto; display:block;
+               background:#fff; user-select:none; -webkit-user-drag:none;
+               box-shadow:0 10px 28px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06); }
+
+  .zone { position:absolute; top:0; bottom:0; width:26%; z-index:3; border:0; padding:0;
+          background:transparent; cursor:pointer; display:flex; align-items:center; }
+  .zone.prev { left:0; justify-content:flex-start; }
+  .zone.next { right:0; justify-content:flex-end; }
+  .zone span { color:rgba(242,239,228,.3); font-size:28px; padding:0 8px; line-height:1; }
+  .zone:disabled { cursor:default; }
+  .zone:disabled span { opacity:.25; }
+
+  footer { flex:0 0 auto; padding:4px 14px 14px; display:flex; flex-direction:column;
+           align-items:center; gap:8px; }
+  .label { font-size:11px; color:var(--dim); letter-spacing:.08em; }
+  .dots { display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .dot { width:8px; height:8px; border-radius:50%; border:0; padding:0;
+         background:rgba(242,239,228,.24); cursor:pointer; transition:background .2s, transform .2s; }
+  .dot.on { background:var(--accent); transform:scale(1.25); }
+  .hint { font-size:10px; color:rgba(138,141,146,.85); }
+
+  .handhint {
+    position:absolute; left:0; right:0; top:0; bottom:0;
+    display:flex; align-items:flex-end; justify-content:center; padding-bottom:64px;
+    z-index:5; pointer-events:none; transition:opacity .4s ease;
+  }
+  .handhint.gone { opacity:0; }
+  .handwrap { position:relative; animation:handswipe 2.4s cubic-bezier(.4,0,.2,1) .7s 3 both; }
+  .ripple {
+    position:absolute; top:14px; left:32px; width:46px; height:46px; margin:-23px 0 0 -23px;
+    border-radius:50%; background:rgba(242,239,228,.5);
+    animation:ripplepulse 2.4s cubic-bezier(.4,0,.2,1) .7s 3 both;
+  }
+  .handhint svg { display:block; filter:drop-shadow(0 4px 10px rgba(0,0,0,.45)); }
+  .handhint .cap {
+    position:absolute; left:50%; transform:translateX(-50%); bottom:-38px;
+    font-size:11px; letter-spacing:.1em; color:#f2efe4; white-space:nowrap;
+    background:rgba(14,32,55,.88); padding:5px 12px; border-radius:999px;
+  }
+  @keyframes handswipe {
+    0%   { opacity:0; transform:translateX(52px) rotate(6deg); }
+    14%  { opacity:1; transform:translateX(52px) rotate(6deg); }
+    58%  { opacity:1; transform:translateX(-52px) rotate(-6deg); }
+    74%  { opacity:0; transform:translateX(-52px) rotate(-6deg); }
+    100% { opacity:0; transform:translateX(52px) rotate(6deg); }
+  }
+  @keyframes ripplepulse {
+    0%,10%  { opacity:0; transform:scale(.4); }
+    18%     { opacity:1; transform:scale(1); }
+    58%     { opacity:.5; transform:scale(1.15); }
+    70%,100%{ opacity:0; transform:scale(1.3); }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="ttl">「マエバシ・ダイブ」副読本</div>
+    <div class="sub">A5 ／ 全11ページ</div>
+    <a href="maebashi-dive.pdf" download>PDFをダウンロード</a>
+  </header>
+
+  <div class="stage" id="stage">
+    <div class="track" id="track"></div>
+    <button class="zone prev" id="prev" aria-label="前のページ"><span>&#8249;</span></button>
+    <button class="zone next" id="next" aria-label="次のページ"><span>&#8250;</span></button>
+    <div class="handhint" id="hintpop">
+      <div class="handwrap">
+        <div class="ripple"></div>
+        <svg width="68" height="94" viewBox="0 0 64 88" aria-hidden="true">
+          <path d="M22 48 V16 a7 7 0 0 1 14 0 v24 h5 a10 10 0 0 1 10 10 v14 a16 16 0 0 1 -16 16 h-9 a15 15 0 0 1 -15 -15 v-17 a6 6 0 0 1 12 0"
+                fill="rgba(242,239,228,.82)" stroke="rgba(14,32,55,.85)" stroke-width="3"
+                stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <div class="cap">スワイプしてめくる</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="label" id="label"></div>
+    <div class="dots" id="dots"></div>
+    <div class="hint">スワイプ、または画面の左右をタップ</div>
+  </footer>
+
+<script>
+(function () {
+  var PAGES = [
+    ["p00.jpg", "表紙"],
+    ["p01.jpg", "p02　扉"],
+    ["p02.jpg", "p03　マエバシ・ダイブ"],
+    ["p03.jpg", "p04　目標を書く"],
+    ["p04.jpg", "p05　中扉"],
+    ["p05.jpg", "p06　＋α"],
+    ["p06.jpg", "p07　追加情報"],
+    ["p07.jpg", "p08　テテンとは"],
+    ["p08.jpg", "p09　マエバシの街（左）"],
+    ["p09.jpg", "p10　マエバシの街（右）"],
+    ["p10.jpg", "裏表紙"]
+  ];
+  var track = document.getElementById('track');
+  var dots  = document.getElementById('dots');
+  var label = document.getElementById('label');
+  var stage = document.getElementById('stage');
+  var prevB = document.getElementById('prev');
+  var nextB = document.getElementById('next');
+  var cur = 0, dragging = false, startX = 0, dx = 0, w = 1;
+
+  PAGES.forEach(function (p, i) {
+    var s = document.createElement('div');
+    s.className = 'slide';
+    var img = document.createElement('img');
+    img.src = p[0]; img.alt = p[1]; img.draggable = false;
+    img.loading = i < 2 ? 'eager' : 'lazy';
+    s.appendChild(img); track.appendChild(s);
+    var d = document.createElement('button');
+    d.className = 'dot'; d.type = 'button';
+    d.setAttribute('aria-label', p[1]);
+    d.addEventListener('click', function () { go(i); });
+    dots.appendChild(d);
+  });
+
+  function place(offset) {
+    w = stage.clientWidth || 1;
+    track.style.transform = 'translateX(' + (-cur * w + (offset || 0)) + 'px)';
+  }
+  function render() {
+    for (var i = 0; i < dots.children.length; i++) {
+      dots.children[i].className = 'dot' + (i === cur ? ' on' : '');
+    }
+    label.textContent = PAGES[cur][1] + '　—　' + (cur + 1) + ' / ' + PAGES.length;
+    prevB.disabled = (cur === 0);
+    nextB.disabled = (cur === PAGES.length - 1);
+    if (history.replaceState) history.replaceState(null, '', '#' + (cur + 1));
+  }
+  function go(n) {
+    cur = Math.max(0, Math.min(PAGES.length - 1, n));
+    track.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1)';
+    place(0); render();
+  }
+
+  prevB.addEventListener('click', function () { go(cur - 1); });
+  nextB.addEventListener('click', function () { go(cur + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') go(cur + 1);
+    if (e.key === 'ArrowLeft') go(cur - 1);
+  });
+
+  function down(x) { dragging = true; startX = x; dx = 0; track.style.transition = 'none'; }
+  function move(x) { if (!dragging) return; dx = x - startX; place(dx); }
+  function up() {
+    if (!dragging) return;
+    dragging = false;
+    track.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1)';
+    if (dx < -40) go(cur + 1);
+    else if (dx > 40) go(cur - 1);
+    else place(0);
+    dx = 0;
+  }
+  stage.addEventListener('touchstart', function (e) { down(e.touches[0].clientX); }, { passive: true });
+  stage.addEventListener('touchmove', function (e) {
+    if (!dragging) return;
+    if (Math.abs(e.touches[0].clientX - startX) > 6) e.preventDefault();
+    move(e.touches[0].clientX);
+  }, { passive: false });
+  stage.addEventListener('touchend', up);
+  stage.addEventListener('touchcancel', up);
+  stage.addEventListener('mousedown', function (e) { e.preventDefault(); down(e.clientX); });
+  window.addEventListener('mousemove', function (e) { move(e.clientX); });
+  window.addEventListener('mouseup', up);
+  window.addEventListener('resize', function () { track.style.transition = 'none'; place(0); });
+
+  var hint = document.getElementById('hintpop');
+  var hinted = false;
+  function killHint() { if (hinted) return; hinted = true; hint.classList.add('gone'); }
+  function nudge() {
+    if (hinted || cur !== 0) return;
+    track.style.transition = 'transform .5s cubic-bezier(.4,0,.2,1)';
+    place(-30);
+    setTimeout(function () { if (!hinted && cur === 0) place(0); }, 520);
+  }
+  setTimeout(nudge, 900);
+  setTimeout(nudge, 2600);
+  setTimeout(killHint, 9000);
+  ['touchstart', 'mousedown', 'keydown', 'click'].forEach(function (ev) {
+    document.addEventListener(ev, killHint, { passive: true });
+  });
+
+  var start = parseInt((location.hash || '').replace('#', ''), 10);
+  if (start >= 1 && start <= PAGES.length) cur = start - 1;
+  place(0); render();
+})();
+</script>
+</body>
+</html>
